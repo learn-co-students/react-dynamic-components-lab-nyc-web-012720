@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 
 export default class ColorBox extends Component {
-
   state = {
-    todos: [
-      
-    ]
-  }
+    todos: [],
+  };
 
   render() {
+    let result;
+    let number;
+
+    if (this.props.opacity >= 0.2) {
+      number = this.props.opacity - 0.1;
+      result = <ColorBox opacity={number} />;
+    } else if (this.props.opacity < 0.2) {
+      debugger;
+      return null;
+    }
     return (
-      <div className="color-box" style={{opacity: null /*replace null with the value*/}}>
-        {/* your conditional code here! */}
+      <div
+        className="color-box"
+        style={{ opacity: this.props.opacity /*replace null with the value*/ }}
+      >
+        {result}
       </div>
-    )
+    );
   }
-
 }
-
